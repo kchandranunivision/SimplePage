@@ -1,3 +1,28 @@
-steps:
-  - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./vision/explore-api", "gs://hello.alp.im"]
+name: "Create a simple Rmarkdown website"
+navbar:
+  left:
+    - text: "Home"
+      href: SSE.html
+    - text: "Getting Started"
+      menu:
+        - text: "Create a Project"
+          href: SSE.html
+        - text: "Set Build Options"
+          href: SSE.html
+        - text: "Create a _site.yml"
+          href: SSE.html
+    - text: "Add Features"
+      menu: 
+        - text: "Tables and Plots"
+          href: SSE.html
+        - text: "Include Images"
+          href: SSE.html
+        - text: "Embed a webpage"
+          href: SSE.html
+    - text: "Publish and Update"      
+      menu: 
+        - text: "Publishing"
+          href: SSE.html
+        - text: "Updating"
+          href: SSE.html
+output_dir: "."
