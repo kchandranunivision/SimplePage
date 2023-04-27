@@ -1,2 +1,14 @@
-name: "Create a simple Rmarkdown website"
+name: "Yay internet!"
 output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: SSH.html
+    - icon: fa-envelope fa-lg
+      href: mailto:kchandran@univision.net
+    - icon: fa-github fa-lg
+      href: http://github.com/kchandranunivision/
+output:
+  html_document:
+    theme: cerulean
