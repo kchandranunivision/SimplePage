@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.column1 {
+  float: left;
+  width: 20%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+body {
+  background-image: url('sp-landing-back.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 38px 2px;
+  cursor: pointer;
+}
+
+
+.button3 {background-color: #f44336; margin: 38px 2px;} /* Red */ 
+div.c {
+  position: absolute;
+  left: 1190px;
+  width: 200px;
+  height: 120px;
+
+} 
+div.parent {
+  
+  height: 133px;
+}
+</style>
+    <title >Self Service AI Enablement</title>
+</head>
+<body>
+
+ <br><br>
+    <h2 style="text-align: center; color: #f1f1f1;">SELF SERVICE AI ENABLEMENT</h2>
+    <hr>
+
+<br><br>
+<div class="row">
+    <div class="column1"><p style="
+        margin-top: 5px; font-size:larger; text-align:center;color: #f1f1f1;" >Please select integration name</p></div>
+    <div class="column1">
+        <select id="test-dropdown" onchange="choice1(this)" style="height: 33px; width: 341px;" >
+            <option value="all">All</option>
+            <option value="dev">Development</option>
+            <option value="qa">QA</option>
+            <option value="uat">UAT</option>
+         </select>
+    </div>
+</div>
+
+<br><br> 
+<div class="row">
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger; text-align:center;color: #f1f1f1;" >Source Server Name </p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname">
+  </div>
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger;text-align:center;color: #f1f1f1;" >Target Server Name   </p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname" >
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger; text-align:center;color: #f1f1f1;" >SFTP Server Name</p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname" readonly>
+  </div>
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger;text-align:center;color: #f1f1f1;" >SFTP User Name   </p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname" readonly>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger; text-align:center;color: #f1f1f1;" >SFTP Password </p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname" readonly>
+  </div>
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger;text-align:center;color: #f1f1f1;" >Mount Path Drive   </p></div>
+  <div class="column1">
+    <input type="text" style="height: 33px; width: 341px;" id="fname" name="fname" readonly>
+  </div>
+</div>
+<div  style="text-align: center;">
+  <button class="button" >Submit</button>
+  <button class="button button3">Cancel</button>
+</div>
+
+<div class="row">
+  <div class="column1"><p style="
+    margin-top: 5px; font-size:larger; text-align:center;color: #f1f1f1;" >Action Details </p></div>
+  <div class="column1">
+    <div class="column1">
+  <textarea id="idAction" name="idAction" rows="4" cols="50" style="width: 1100px; height: 367px;" readonly>Logs.
+  </textarea>
+</div>
+</div>
+
+
+<script>
+    var thisIsGlobal= null;
+    var finalURL ="utg.uvn.net";
+    var customURL = ".utg.uvn.net/process-engine/public/rt/MP_SELF_SERVICE_JOB_TRIGGER_PROCESS?TF_NAME=";
+    var cusomdomain = "https://eis";
+    //https://eisdev.utg.uvn.net/process-engine/public/rt/MP_SELF_SERVICE_JOB_TRIGGER_PROCESS?TF_NAME=tf_M_INTERCO
+    function choice1(select) {
+     //alert(select.options[select.selectedIndex].value);
+     thisIsGlobal = select.options[select.selectedIndex].value;
+}
+
+function ValidateRunner(full_name) {
+    //alert(thisIsGlobal);
+    if (thisIsGlobal == null) {
+        alert("Please select the environment!!!");
+        return;
+    }
+    else 
+    {
+        finalURL = cusomdomain + thisIsGlobal + customURL + full_name ;
+       alert(finalURL);
+       window.open(finalURL, 'Self Service AI');
+    }
+   
+}
+
+</script>
+
+</body>
+</html>
